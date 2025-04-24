@@ -74,7 +74,9 @@ def process_files(directory):
 
 # Tạo giao diện Gradio
 def gradio_interface(directory):
-    return gr.Interface(fn=process_files, inputs=gr.Textbox(), outputs=gr.Textbox())
+    interface = gr.Interface(fn=process_files, inputs=gr.Textbox(), outputs=gr.Textbox())
+    interface.queue()  # Bật chế độ queue
+    return interface
 
 if __name__ == "__main__":
     # Chạy giao diện Gradio và chỉ định thư mục chứa các file
