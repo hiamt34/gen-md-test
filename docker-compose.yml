@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+
+  # Dịch vụ MongoDB
+  mongodb:
+    image: mongo:latest  # Sử dụng image MongoDB chính thức
+    container_name: mongo_container
+    ports:
+      - "27017:27017"  # Cổng mặc định của MongoDB
+    volumes:
+      - mongodb_data:/data/db  # Lưu trữ dữ liệu MongoDB vào volume
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin  # Tên người dùng root cho MongoDB
+      - MONGO_INITDB_ROOT_PASSWORD=password  # Mật khẩu cho người dùng root
+    restart: always  # Tự động khởi động lại nếu MongoDB bị tắt
+
+volumes:
+  mongodb_data:  # Volume để giữ dữ liệu MongoDB
+
