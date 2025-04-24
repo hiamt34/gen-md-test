@@ -80,4 +80,5 @@ def gradio_interface(directory):
 
 if __name__ == "__main__":
     # Chạy giao diện Gradio và chỉ định thư mục chứa các file
-    gradio_interface("data").launch()
+    gradio_interface("data").launch(server_name="0.0.0.0", server_port=7860)
+
